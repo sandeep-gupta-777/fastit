@@ -1,0 +1,85 @@
+
+.control-main{
+  width: 200px;
+  height: 150px;
+}
+.control-sub{
+  width: 100px;
+  height: 75px;
+  opacity: 0;
+}
+.control-sub-animation-left{
+  animation-name: left-appear;
+  animation-duration: 1s;
+  animation-fill-mode:forwards ; /*retain properties from last keyframe*/
+
+}
+
+@keyframes left-appear {
+  0%   {
+    transform: translateX(30px);
+    opacity:0 ;
+  }
+  80%   {
+    transform: translateX(-5px);
+    /*opacity:0 ;*/
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.control-sub-animation-right{
+  animation-name: right-appear ;
+  animation-duration: 1s;
+  animation-fill-mode:forwards ; /*retain properties from last keyframe*/
+}
+
+@keyframes right-appear {
+  0%   {
+    transform: translateX(-30px);
+    opacity:0 ;
+  }
+  80%   {
+    transform: translateX(5px);
+    /*opacity:0 ;*/
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*TODO: run animation backwards to avoid code repetition*/
+
+.control-sub-animation-left-hide{
+  animation-name: left-hide;
+  animation-duration: .3s;
+  animation-fill-mode:forwards ;
+
+}
+
+@keyframes left-hide {
+  0%   {
+    opacity:1 ;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+}
+
+.control-sub-animation-right-hide{
+  animation-name: right-hide;
+  animation-duration: .3s;
+  animation-fill-mode:forwards ;
+
+}
+@keyframes right-hide {
+  0%   {
+    opacity:1 ;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+}

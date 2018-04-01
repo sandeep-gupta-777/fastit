@@ -1,0 +1,36 @@
+
+
+
+<div class="container text-theme-dark">
+<!--TODO: bootstrap offset classes are not working. Check on that later-->
+  <div class="row d-flex justify-content-center p-5">
+    <div class="col-5 login-box shadow-theme px-5 py-4">
+      <h1 *ngIf="isLoginMode" class="display-1 login-box__header font-weight-bold mt-3 mb-3">Log in</h1>
+      <h1 *ngIf="!isLoginMode" class="display-1 login-box__header font-weight-bold mt-3 mb-3">Sign up</h1>
+      <form>
+        <div class="form-group slide-left-animation" *ngIf="!isLoginMode">
+          <label for="exampleInputEmail1">Name</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
+        </div>
+        <div class="form-group slide-left-animation">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+        </div>
+        <div class="form-group slide-left-animation">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter a complex password">
+        </div>
+        <div class="form-group slide-left-animation" *ngIf="!isLoginMode">
+          <label for="exampleInputPassword1">Confirm password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm password">
+        </div>
+        <button type="submit" class="btn btn-block bg-theme text-white">Submit</button>
+      </form>
+
+      <div class="d-flex justify-content-between mt-3">
+        <small class="text-muted">Click <span (click)="changeMode()">here</span> to register instead</small>
+        <small class=" text-muted"><a href="#">Forgot password?</a></small>
+      </div>
+    </div>
+  </div>
+</div>

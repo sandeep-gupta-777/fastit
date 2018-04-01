@@ -1,0 +1,40 @@
+
+<div class="container">
+  <div class="row plan-detail d-flex justify-content-center" >
+    <!--<h1 class="display-1" appTooltip>Hell111111o</h1>-->
+
+    <div  class="plan-detail__links d-flex flex-row text-center">
+      <div class="plan-detail__links--item display-1 mr-3 box shadow-theme shadow-click-theme"
+           (click)="copyToClipboard(uploadUrl)"
+           data-toggle="tooltip" appTooltip
+           (mouseenter)="firstBoxHover=true" (mouseleave)="firstBoxHover = !firstBoxHover">
+
+        <h1 [ngClass]="{'right-hide':firstBoxHover}" *ngIf="!firstBoxHover">Url</h1>
+
+        <span class="fa fa-copy" style="font-size: 50px;width: 50px" *ngIf="firstBoxHover"
+           [ngClass]="{'left-show':firstBoxHover}"></span>
+      </div>
+
+      <!--<h1 class="plan-detail__links&#45;&#45;item display-1 mr-3 box">WebHook</h1>-->
+
+      <div class="plan-detail__links--item display-1 mr-3 box shadow-theme shadow-click-theme"
+           (click)="copyToClipboard(webHookUrl)"
+           data-toggle="tooltip" appTooltip
+           (mouseenter)="secondBoxHover=true" (mouseleave)="secondBoxHover = !secondBoxHover">
+
+        <h1 [ngClass]="{'right-hide':secondBoxHover}" *ngIf="!secondBoxHover">Hook</h1>
+
+        <span class="fa fa-copy" style="font-size: 50px;width: 50px" *ngIf="secondBoxHover"
+              [ngClass]="{'left-show':secondBoxHover}"></span>
+      </div>
+    </div>
+
+    <!--TODO: avoid the use of innerHTML-->
+    <!--<pre  class="plan-detail__configjson text-white p-4 " style="margin-left: auto" [innerHTML] = 'testJson|'></pre>-->
+  </div>
+  <br>
+  <pre  class="plan-detail__configjson text-white p-4" [innerHTML] = "testJson|prettyprint"></pre>
+
+</div>
+
+

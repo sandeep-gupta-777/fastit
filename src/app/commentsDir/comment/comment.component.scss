@@ -1,0 +1,28 @@
+@import '~scss/variables';
+
+.comment{
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: $color-white;
+
+  .comment__header{
+    height: 40px;
+    background-color: $color-twitter-theme !important;
+    color: $color-white;
+  }
+  .comment__body{
+    color: rgba(40, 40, 40, 0.82);
+  }
+  .comment__controls{
+    .comment__controls-comment-count{
+      font-size: 12px;
+      font-weight: bold;
+      color: $color-twitter-theme;
+    }
+  }
+}
+
+.fa{
+  font-size: 25px;
+  color: $color-twitter-theme !important;
+}

@@ -1,0 +1,8 @@
+<div class='container'>
+  <h3>Feeds from {{_redditDataUrl}}</h3>
+  <div class='reddit' *ngFor="let reddit of _reddits$ | async">
+    <h5 class='title'>{{reddit.title}}</h5>
+    <img src={{reddit.imageUrl}}/>
+    {{reddit.imageUrl}}
+  </div>
+</div>

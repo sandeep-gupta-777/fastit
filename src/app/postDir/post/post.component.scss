@@ -1,0 +1,51 @@
+@import '~scss/variables';
+
+.container{
+  width: 52%;
+  font-size: $text-size;
+  font-family: "Segoe UI",Arial,sans-serif;
+}
+
+.post-wrapper{
+  background-color: $color-white;
+  .post-wrapper__userlogo{
+    //width: 90%;
+    //border: 1px solid red;
+  }
+  .controls{
+    .fa{
+      font-size: 20px;
+      width: 18px;
+    }
+    .control-comment, .control-down, .control-up{
+      &:hover{
+        color: #000a80 !important;
+      }
+    }
+  }
+
+}
+.control-down:hover{
+  color: rgba(0, 10, 128, 0.73) !important;
+}
+.fa:hover{
+  color: rgba(0, 10, 128, 0.73) !important;
+}
+
+.col-1{
+  flex: 0 0 9.3%;
+  max-width: 9.3%;
+}
+
+.col-11{
+  flex: 0 0 90.7%;
+  max-width: 90.7%;
+}
+
+.post-wrapper__detail-img{
+  width: 100%;
+}
+
+.count{
+  font-family: "Segoe UI", Arial, sans-serif;
+}

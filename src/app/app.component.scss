@@ -1,0 +1,8 @@
+/*The tilde (~) will tell Sass to look in the src/ folder and is a quick shortcut to importing Sass files.*/
+@import '~scss/variables';
+
+
+.container{
+  min-height: $length;
+}
+

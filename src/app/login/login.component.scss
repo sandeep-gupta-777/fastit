@@ -1,0 +1,37 @@
+
+input.ng-invalid.ng-touched{
+  border: 1px solid red;
+}
+
+.login-box{
+  background: white;
+  border-radius: 10px;
+  &__header{
+    font-size: 30px;
+    text-align: center;
+  }
+  //transition: all 10s;
+/*TODO: Height of the box should not be changing abruptly...make it smooth transition*/
+}
+
+.slide-left-animation{
+  animation-name: slideLeft;
+  animation-duration: 0.5s;
+}
+
+@keyframes slideLeft {
+  0%{
+    transform: translateX(25px);
+  }
+  100%{
+    transform: translateX(0px);
+  }
+}
+//@keyframes slideLeft {
+//  0%{
+//    transform: translateX(100px);
+//  }
+//  100%{
+//    transform: translateX(0px);
+//  }
+//}

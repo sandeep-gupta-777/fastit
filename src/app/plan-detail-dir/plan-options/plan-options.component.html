@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center align-items-center">
+      <div class="box control-sub "
+           [ngClass]="{'control-sub-animation-left':showSubControls_left, 'control-sub-animation-left-hide':!showSubControls_left}"
+           routerLink='config/t0'
+      >T0</div>
+      <div class="box control-sub"
+           [ngClass]="{'control-sub-animation-left':showSubControls_left, 'control-sub-animation-left-hide':!showSubControls_left}"
+           routerLink='config/t0'
+      >T1</div>
+      <div class="box control-main shadow-theme shadow-click-theme" (click)="showSubControls_left = !showSubControls_left">Config</div>
+      <div class="box control-main shadow-theme shadow-click-theme" (click)="showSubControls_right = !showSubControls_right"><div>Data</div></div>
+      <div class="box control-sub"
+           [ngClass]="{'control-sub-animation-right':showSubControls_right, 'control-sub-animation-right-hide':!showSubControls_right}"
+           routerLink='data/t0'
+      ><div>T0</div></div>
+      <div class="box control-sub"
+           [ngClass]="{'control-sub-animation-right':showSubControls_right, 'control-sub-animation-right-hide':!showSubControls_right}"
+           routerLink='data/t0'
+      ><div>T1</div></div>
+    </div>
+  </div>
+</div>

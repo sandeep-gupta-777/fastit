@@ -1,0 +1,18 @@
+@import '~scss/variables';
+
+.header-container{
+  box-shadow: 1px 1px 2px blue;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  z-index: 1;
+}
+
+.navbar-brand{
+  font-weight: bold;
+  font-size: 25px;
+  color: $color-twitter-theme !important;
+}
+.navbar{
+  background-color: #4249a1 !important;
+}

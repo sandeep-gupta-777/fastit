@@ -1,0 +1,17 @@
+
+<div class="container">
+  <div class="row plan-detail d-flex justify-content-center" >
+
+    <div class="plan-detail__links d-flex flex-row text-center">
+      <h1 class="plan-detail__links--item display-1 mr-3 box shadow-theme shadow-click-theme">Url</h1>
+      <h1 class="plan-detail__links--item display-1 mr-3 box shadow-theme shadow-click-theme">Hook</h1>
+    </div>
+
+    <!--TODO: avoid the use of innerHTML-->
+    <!--<pre  class="plan-detail__configjson text-white p-4 " style="margin-left: auto" [innerHTML] = 'testJson|'></pre>-->
+  </div>
+  <pre  class="plan-detail__configjson text-white p-4 " [innerHTML] = "testJson|prettyprint"></pre>
+
+</div>
+
+

@@ -1,0 +1,8 @@
+<table class="table table-hover mb-0 text-theme-dark">
+  <tr>
+    <th *ngFor="let c of columns">{{c}}</th>
+  </tr>
+  <tr
+      *ngFor="let record of records | async" app-table-row [record]="record" [columns]="columns">
+  </tr>
+</table>

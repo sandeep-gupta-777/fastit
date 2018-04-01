@@ -1,0 +1,32 @@
+
+
+
+<header
+  class="header-container
+  navbar navbar-expand bg-twitter-theme flex-column flex-md-row bd-navbar"
+  style="background: white !important;"
+>
+  <a class="navbar-brand ml-5" href="#">Fastit!</a>
+
+  <div class="navbar-nav-scroll">
+    <ul class="navbar-nav bd-navbar-nav flex-row">
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/dashboard">Dashboard</a>
+      </li>
+    </ul>
+  </div>
+
+  <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+
+    <li class="nav-item">
+      <a class="nav-link p-2 pr-5" routerLink="login" routerLinkActive="active">  Login  </a>
+    </li>
+  </ul>
+
+</header>
+
+<div style="margin-bottom: 100px"></div>
+

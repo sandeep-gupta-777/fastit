@@ -1,0 +1,47 @@
+.plan-detail__links--item{
+  width: 200px;
+  height: 150px;
+}
+
+pre{
+  background-color: #4249a1;
+}
+
+.fa-copy{
+  color: #4249a1;
+}
+
+/*animations below*/
+.left-show{
+  animation-name: left-show;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+i{
+  opacity: 0;
+}
+@keyframes left-show {
+  0%   {
+    opacity:0 ;
+    transform: translateX(60px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.right-hide{
+  animation-name: right-hide;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes right-hide {
+  0%   {
+    opacity:0 ;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-200px);
+  }
+}

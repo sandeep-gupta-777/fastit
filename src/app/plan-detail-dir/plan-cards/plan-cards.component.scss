@@ -1,0 +1,29 @@
+.plan-card{
+  border-radius: 5px;
+  background-color: #000a80;
+}
+
+.plan-card_metadata{
+  list-style-type: none;
+}
+.plan-card__heading > h1 {
+  font-size: 50px;
+  font-weight: 500;
+}
+
+.plan-card_metadata > li:nth-child(2) {
+  border-right: 1px solid white;
+  border-left: 1px solid white;
+}
+
+li>p{
+  text-align: center;
+}
+
+.progress{
+  height: 3px;
+}
+
+.bg-danger1{
+  background-color: #35dc78;
+}
