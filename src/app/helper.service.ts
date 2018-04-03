@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import {AppVariablesService} from "./appVariables.service";
 import {isUndefined} from "util";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable()
 export class HelperService {
 
-  constructor(private appVariablesService:AppVariablesService) { }
+  constructor(private appVariablesService:AppVariablesService,
+              private http:HttpClient) { }
 
+  makeGetReq(url){
+    return this.http.get(url);
+  }
   copyToClipboard(text) {
     let tempWindow:any = window;
     if (tempWindow.clipboardData && tempWindow.clipboardData.setData) {

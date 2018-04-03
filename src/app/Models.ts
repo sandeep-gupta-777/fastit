@@ -1,5 +1,6 @@
 
 export interface RedditPostData{
+
   "subreddit_id"?: string,
   "approved_at_utc"?: string,
   "send_replies"?: boolean,

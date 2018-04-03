@@ -15,7 +15,7 @@ body{
   border: 1px solid $color-twitter-theme;
 }
 .text-twitter-theme{
-  color: $color-twitter-theme;
+  color: $color-twitter-theme !important;
 }
 
 .cursor-pointer{

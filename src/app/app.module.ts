@@ -37,8 +37,18 @@ import { CommentComponent } from './commentsDir/comment/comment.component';
 import { NewCommentComponent } from './commentsDir/new-comment/new-comment.component';
 import { CommentListComponent } from './commentsDir/comment-list/comment-list.component';
 import { RedditFeedComponent } from './reddit-feed/reddit-feed.component';
+import { PostListComponent } from './postDir/post-list/post-list.component';
+import {StoreModule} from "@ngrx/store";
+import {EffectsModule} from "@ngrx/effects";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {environment} from "../environments/environment";
+import {reducers} from "./store/app.reducers";
+import {PostEffects} from "./postDir/store/post.effects";
+import { SearchBarComponent } from './search-dir/search-bar/search-bar.component';
+import {SearchListComponent} from "./search-dir/search-list/search-list.component";
 
 const routes: Route[] = [
+  {path: 'search', component: SearchListComponent },
   {path: 'login', component: LoginComponent, data:{ isLoginMode:true } },
   {path: 'signup', component: LoginComponent,data:{ isLoginMode:false } },
   {
@@ -87,12 +97,19 @@ const routes: Route[] = [
     NewCommentComponent,
     CommentListComponent,
     RedditFeedComponent,
+    PostListComponent,
+    SearchBarComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([PostEffects]),
+    StoreDevtoolsModule,
+    !environment.production?  StoreDevtoolsModule.instrument():[]
+
   ],
   providers: [
     AuthService,

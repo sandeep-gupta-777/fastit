@@ -1,20 +1,24 @@
 @import '~scss/variables';
 
 .comment{
-  border-radius: 10px;
+  //border-radius: 10px;
   overflow: hidden;
   background-color: $color-white;
 
   .comment__header{
-    height: 40px;
-    background-color: $color-twitter-theme !important;
-    color: $color-white;
+    height: 20px;
+    font-size: 14px;
+    text-transform: capitalize;
+
+    //background-color: $color-twitter-theme !important;
+    //color: $color-white;
   }
   .comment__body{
     color: rgba(40, 40, 40, 0.82);
+    font-size: 14px;
   }
   .comment__controls{
-    .comment__controls-comment-count{
+    .comment__controls-count{
       font-size: 12px;
       font-weight: bold;
       color: $color-twitter-theme;
@@ -23,6 +27,13 @@
 }
 
 .fa{
-  font-size: 25px;
+  font-size: 16px;
   color: $color-twitter-theme !important;
+}
+
+.separator[_ngcontent-c5]::after {
+  content: " \B7";
+  font-weight: bold;
+  padding: 0 5px;
+  color: #868e96;
 }
