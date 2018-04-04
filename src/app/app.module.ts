@@ -46,6 +46,8 @@ import {reducers} from "./store/app.reducers";
 import {PostEffects} from "./postDir/store/post.effects";
 import { SearchBarComponent } from './search-dir/search-bar/search-bar.component';
 import {SearchListComponent} from "./search-dir/search-list/search-list.component";
+import {SearchItemComponent} from "./search-dir/search-item/search-item.component";
+import {SearchEffects} from "./search-dir/store/search.effects";
 
 const routes: Route[] = [
   {path: 'search', component: SearchListComponent },
@@ -99,6 +101,8 @@ const routes: Route[] = [
     RedditFeedComponent,
     PostListComponent,
     SearchBarComponent,
+    SearchListComponent,
+    SearchItemComponent
   ],
   imports: [
     BrowserModule,
@@ -106,7 +110,7 @@ const routes: Route[] = [
     HttpClientModule,
     RouterModule.forRoot(routes),
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([PostEffects]),
+    EffectsModule.forRoot([PostEffects, SearchEffects]),
     StoreDevtoolsModule,
     !environment.production?  StoreDevtoolsModule.instrument():[]
 

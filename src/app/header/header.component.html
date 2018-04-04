@@ -20,7 +20,17 @@
   </div>
 
   <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-
+    <li class="nav-item search-result-container">
+      <a class="nav-link p-2">
+        <input type="search" id="searchT" [ngModel]="keyword" (ngModelChange) = performSearch($event)>
+        <ul class="search-result " style="width: 100%;">
+          <li class="search-result-item"
+              *ngFor="let result of ($searchResults|async) | slice:0:10; let i=index">
+            {{result.display_name_prefixed}}
+          </li>
+        </ul>
+      </a>
+    </li>
     <li class="nav-item">
       <a class="nav-link p-2">
         <i class="fa fa-search text-twitter-theme"></i>

@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'My First Angular App';
+  mymodel;
+  valuechange(newValue) {
+    let mymodel = newValue;
+    console.log(newValue)
+  }
 }

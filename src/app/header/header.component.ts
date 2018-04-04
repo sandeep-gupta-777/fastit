@@ -4,6 +4,12 @@ import {AuthService} from "../auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AppVariablesService} from "../appVariables.service";
 import {ServerService} from "../server.service";
+import {Store} from "@ngrx/store";
+import * as fromSearchReducer from "../search-dir/store/search.reducer";
+import * as fromSearchActions from "../search-dir/store/search.action";
+import {GlobalAppState} from "../store/app.reducers";
+import {Observable} from "rxjs/Observable";
+import {SubRedditData} from "../Models";
 
 @Component({
   selector: 'app-header',
@@ -13,46 +19,43 @@ import {ServerService} from "../server.service";
 export class HeaderComponent implements OnInit {
 
   keyword;
+  $searchResults: Observable<SubRedditData[]>;
   constructor(public helperService: HelperService,
               public authService: AuthService,
               private appVariablesService: AppVariablesService,
               private serverService: ServerService,
               private activatedRoute: ActivatedRoute,
+              private store: Store<GlobalAppState>,
               private router:Router) {
   }
 
   ngOnInit() {
-
-    // this.keyword = this.activatedRoute.snapshot.queryParamMap.get('keyword');//TODO: check why this is not working
-
-    // this.keyword = this.helperService.getQueryParam("keyword");
+    this.$searchResults =
+      this.store.select('search')
+      .map((data) => {
+        /*TODO: implement error handling here*/
+        return (data && data.resultsData )? ( data.resultsData) : [];
+        // return data.resultsData;
+      })
   }
 
-  searchPerformed(keyword){
-    // this.serverService.
-    this.serverService.performSearch(keyword);
-    this.appVariablesService.FRONTEND_Keyword = keyword;
-    this.router.navigate([this.appVariablesService.FRONTEND_ALL_ORDERS_URL], {queryParams:{keyword:keyword}});
+  performSearch($event){
+    let keyword = this.keyword;
+    if(keyword!=='')
+    this.store.dispatch(new fromSearchActions.BeginGetResults({url: this.appVariablesService.getSearchSubRedditUrl(keyword)}));
+    console.log($event);;
   }
 
 
   homeClicked(){
-    // console.log('home clicked');
     this.router.navigate(["/"]);
-    // document.getElementById("menu").classList.remove("show");
   }
   orderClicked(){
     this.router.navigate([this.appVariablesService.FRONTEND_NEW_ORDER_URL]);
   }
 
   goToLoginPage() {
-    // document.getElementById("menu").classList.remove("show");
-    // this.global.previousSRPURL = window.location.pathname;
-    // this.global.previousSRPQueryParams = this.activatedRoute.snapshot.queryParams;
-    // console.log('saved previous url');
-    // this.router.navigate([this.global.loginURL]);
     this.router.navigate([this.appVariablesService.FRONTEND_LOGIN_PAGE_URL]);
-
   }
 
   logout() {

@@ -16,4 +16,7 @@
 
 <!---->
 <!--<app-reddit-feed></app-reddit-feed>-->
-<app-post-list></app-post-list>
+<!--<app-post-list></app-post-list>-->
+<!--<app-search-list></app-search-list>-->
+<input type="text" [ngModel]="mymodel" (ngModelChange)="valuechange($event)" />
+{{mymodel}}

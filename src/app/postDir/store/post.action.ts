@@ -1,5 +1,5 @@
 import {Action} from "@ngrx/store";
-import {RedditPostData} from "../../Models";
+import {RedditPostData, RedditPostWrapper} from "../../Models";
 
 export const BEGIN_GET_POST = 'BEGIN_GET_POST';
 export const GET_POST = 'GET_POST';
@@ -10,7 +10,7 @@ export class BeginGetPosts implements Action{
 }
 export class GetPosts implements Action{
   type: string = GET_POST;
-  constructor(public payload:{postData:RedditPostData} ){}
+  constructor(public payload:{postData:RedditPostData[]} ){}
 }
 
 

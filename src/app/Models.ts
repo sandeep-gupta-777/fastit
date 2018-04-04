@@ -81,6 +81,9 @@ export interface RedditPostWrapper {
   "kind": string,
   "data": RedditPostData
 }
+
+
+
 export interface RedditPostList {
   "kind": string,
   "data": {
@@ -93,6 +96,92 @@ export interface RedditPostList {
   }
 }
 
+export interface SubRedditData  {
+  "suggested_comment_sort"? : null,
+  "hide_ads"? : boolean,
+  "banner_img"? : string,
+  "user_sr_theme_enabled"? : true,
+  "user_flair_text"? : null,
+  "submit_text_html"? : string,
+  "user_is_banned"? : boolean,
+  "wiki_enabled"? : true,
+  "show_media"? : true,
+  "id"? : string,
+  "display_name_prefixed"? : string,
+  "submit_text"? : string,
+  "user_can_flair_in_sr"? : boolean,
+  "display_name"? : string,
+  "header_img"? : string,
+  "description_html"? : string,
+  "title"? : string,
+  "collapse_deleted_comments"? : boolean,
+  "user_has_favorited"? : boolean,
+  "show_media_preview"? : true,
+  "over18"? : boolean,
+  "public_description_html"? : string,
+  "allow_videos"? : true,
+  "spoilers_enabled"? : true,
+  "icon_size"? : null,
+  "audience_target"? : string,
+  "notification_level"? : null,
+  "active_user_count"? : number,
+  "icon_img"? : string,
+  "header_title"? : string,
+  "description"? : string,
+  "user_is_muted"? : boolean,
+  "submit_link_label"? : null,
+  "accounts_active"? : boolean,
+  "public_traffic"? : boolean,
+  "header_size"? : number[],
+  "subscribers"? : number,
+  "user_flair_css_class"? : null,
+  "submit_text_label"? : null,
+  "whitelist_status"? : string,
+  "user_sr_flair_enabled"? : null,
+  "lang"? : string,
+  "user_is_moderator"? : boolean,
+  "is_enrolled_in_new_modmail"? : boolean,
+  "key_color"? : string,
+  "name"? : string,
+  "user_flair_enabled_in_sr"? : boolean,
+  "allow_videogifs"? : true,
+  "url"? : string,
+  "quarantine"? : boolean,
+  "created"? : number,
+  "created_utc"? : number,
+  "banner_size"? : null,
+  "user_is_contributor"? : boolean,
+  "allow_discovery"? : true,
+  "accounts_active_is_fuzzed"? : boolean,
+  "advertiser_category"? : null,
+  "public_description"? : string,
+  "link_flair_enabled"? : true,
+  "allow_images"? : true,
+  "videostream_links_count"? : number,
+  "comment_score_hide_mins"? : number,
+  "subreddit_type"? : string,
+  "submission_type"? : string,
+  "user_is_subscriber"? : boolean
+}
+export interface SubRedditWrapper  {
+  "kind"? : string,
+  "data"? : SubRedditData
+}
+// export interface SubRedditWrapper {
+//   "kind"? :string,
+//   "data"? : SubRedditData[]
+// }
+export interface SubRedditResultList {
+  "kind"?: string,
+  "data"?: {
+    after:string,
+    before:string,
+    dist:number,
+    modhash:string,
+    kind:string,
+    children:{data:SubRedditData, kind:string}[]
+  }
+}
 
 
 

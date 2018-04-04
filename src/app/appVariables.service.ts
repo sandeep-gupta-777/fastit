@@ -6,9 +6,24 @@ export class AppVariablesService {
   constructor() {
   }
 
+  public readonly REDDIT_ROOT = 'http://www.reddit.com';
+
+  /*paths below*/
+  public readonly SEARCH_SUBREDDIT_PATH = '/subreddits/search.json';
+
+  getSubredditUrl(subReddit:string){
+    return `${this.REDDIT_ROOT}${subReddit}.json`;
+  }
+
+  getSearchSubRedditUrl(keyword:string):string{
+    /*https://www.reddit.com/subreddits/search.json?q=9gag*/
+    return this.REDDIT_ROOT+this.SEARCH_SUBREDDIT_PATH + `?q=${keyword}`;
+  }
+
   FRONTEND_ORDER_IMAGE_EDIT_PAGE_URL(id){
     return `neworder/${id}/imageEdit`;
   }
+
 
   readonly FRONTEND_LOGIN_PAGE_URL = 'login';
   readonly FRONTEND_SIGNUP_PAGE_URL = 'signup';

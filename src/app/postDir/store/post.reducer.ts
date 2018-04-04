@@ -1,14 +1,14 @@
-import {RedditPostData} from "../../Models";
+import {RedditPostData, RedditPostWrapper} from "../../Models";
 import * as fromPostActions from './post.action';
 
 
 
 export interface State {
-  postData:RedditPostData
+  postData:RedditPostData[]
 }
 
 const initialState:State={
-  postData:{}
+  postData:[]
 };
 
 export function postReducer(state:State, action:fromPostActions.PostActions): State {

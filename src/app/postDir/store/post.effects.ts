@@ -3,7 +3,7 @@ import * as fromPostAction from "./post.action";
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/mergeMap';
 import {HelperService} from "../../helper.service";
-import {RedditPostData, RedditPostWrapper} from "../../Models";
+import {RedditPostData, RedditPostList, RedditPostWrapper} from "../../Models";
 import {Injectable} from "@angular/core";
 
 @Injectable()
@@ -23,11 +23,16 @@ export class PostEffects{
     .switchMap((url:string)=>{
       return this.helper.makeGetReq(url);
     })
-    .map((data: RedditPostWrapper)=>{
+    .map((data: RedditPostList)=>{
       console.log(data);
-      return data.data;
+      let x =  data.data.children.map((d)=>{
+        return d.data
+      });
+      console.log(x);
+      return x;
     })
-    .mergeMap((data: RedditPostData)=>{
+    .mergeMap((data: RedditPostData[])=>{
+      console.log(data);
       return [
         new fromPostAction.GetPosts({postData:data}),
       ];

@@ -1,3 +1,36 @@
-<p>
-  search-item works!
-</p>
+<div class="container">
+
+  <div class="row text-dark bg-white p-3 "  style="margin-bottom: 10px">
+    <!--https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_cards-->
+    <br>
+    <!--image starts here-->
+    <div class="col-md-2 col-12 p-0">
+
+      <img class="img-responsive " style="max-width: 100%"
+           [src]="'https://ciphertrick.com/wp-content/uploads/2017/03/featured-1-900x420.jpg'"
+           alt="">
+    </div>
+    <!--image ends here-->
+
+    <div class="col-md-10 bg-white col-12 result-title-snippet-container">
+      <!--result title here-->
+      <div class="linkCursor truncate result-title" style="font-weight: bold; width: 100%"
+           [innerHTML]="'this is some title'"></div>
+      <div [innerHTML]="'this is some text'"
+           style="font-family: 'Segoe UI',sans-serif,fantasy;font-size: 14px; overflow: hidden">
+        <!--in grid we use text but in full text we use htnml-->
+
+        <!--result snippet here-->
+      </div>
+    </div>
+    <!--Metadata starts-->
+    <div class="col-12" style=" margin-bottom: 10px ;overflow: hidden">
+      <div class="pull-right">
+        <span><b>{{'sandeep gupta'}}</b></span>
+        <span>{{0|date:'mediumDate'}}</span>
+
+      </div>
+      <!--Metadata ends-->
+    </div>
+  </div>
+</div>
