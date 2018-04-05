@@ -27,7 +27,7 @@
   background-color: $color-background;
 }
 
-.search-result-container{
+.search-result-pivot{
   position: relative;
 }
 #searchT,#searchT::-webkit-input-placeholder {
@@ -35,25 +35,30 @@
   color: gray;
 }
 
-.search-result{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.search-result-container{
   position: absolute;
   top: 50px;
-  .search-result-item{
-    padding: 10px 10px;
-    width: 100%;
-    font-size: 12px;
-    background-color: $color-white;
-    height: 30px;
-    color: rgba(0, 0, 0, 0.76);
-    display: flex;
-    justify-content: start;
-    align-items: center;
-  }
-  .search-result-item:hover{
-    background-color: $color-background;
+  right: 0px;
+  width: 220%;
+
+  .search-result{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    .search-result-item{
+      padding: 10px 10px;
+      width: 100%;
+      font-size: 12px;
+      background-color: $color-white;
+      height: 30px;
+      color: rgba(0, 0, 0, 0.76);
+      display: flex;
+      justify-content: start;
+      align-items: center;
+    }
+    .search-result-item:hover{
+      background-color: $color-background;
+    }
   }
 }
 

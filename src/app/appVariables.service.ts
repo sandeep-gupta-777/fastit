@@ -7,15 +7,29 @@ export class AppVariablesService {
   }
 
   public readonly REDDIT_ROOT = 'http://www.reddit.com';
+  /*"https://www.reddit.com/search.json?q=india&sort=relevance&t=all".*/
+  /*"http://www.reddit.com/r/worldnews/comments/7g4za4.json?&limit=5".*/
+
+  /*comments:*/
+  /*get comments: https://www.reddit.com/r/9gag/comments/6azdc9.json?limit=100   here 6azdc9 is id which is found in post*/
+  /*additional examples: https://www.reddit.com/r/AskReddit/comments/89uf7o.json?limit=100&depth=3&sort=confidence&rnd=906516*/
 
   /*paths below*/
   public readonly SEARCH_SUBREDDIT_PATH = '/subreddits/search.json';
+  public readonly SEARCH_USER_PATH = '/subreddits/search.json';
+  public readonly EXACT_USER_PATH = '/user/search.json';// https://www.reddit.com/user/sangupta637.json
+
+  public readonly COMMENT_PATH = '/user/search.json';
+
 
   getSubredditUrl(subReddit:string){
     return `${this.REDDIT_ROOT}${subReddit}.json`;
   }
+  getCommentUrl(subReddit:string, id:string, limit:number){
+    return `${this.REDDIT_ROOT}/r/${subReddit}/comments/${id}.json?limit=${limit}`;
+  }
 
-  getSearchSubRedditUrl(keyword:string):string{
+  getSearchSubRedditPostsUrl(keyword:string):string{
     /*https://www.reddit.com/subreddits/search.json?q=9gag*/
     return this.REDDIT_ROOT+this.SEARCH_SUBREDDIT_PATH + `?q=${keyword}`;
   }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {HelperService} from "../helper.service";
 import {AuthService} from "../auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -18,8 +18,12 @@ import {SubRedditData} from "../Models";
 })
 export class HeaderComponent implements OnInit {
 
-  keyword;
+  keyword:string;
+  hideTypeahead:boolean = true;
+  selectedtypeaheadText;
+  highlightedTypeaheadCount=0;
   $searchResults: Observable<SubRedditData[]>;
+  subRedditSearchResults:SubRedditData[];
   constructor(public helperService: HelperService,
               public authService: AuthService,
               private appVariablesService: AppVariablesService,
@@ -29,6 +33,11 @@ export class HeaderComponent implements OnInit {
               private router:Router) {
   }
 
+  @ViewChild('search') searchResultPivot: ElementRef;
+  @HostListener('document:click', ['$event']) onClick(event) {
+    this.hideTypeahead = !this.searchResultPivot.nativeElement.contains(event.target);
+  }
+
   ngOnInit() {
     this.$searchResults =
       this.store.select('search')
@@ -36,16 +45,47 @@ export class HeaderComponent implements OnInit {
         /*TODO: implement error handling here*/
         return (data && data.resultsData )? ( data.resultsData) : [];
         // return data.resultsData;
+      });
+
+    this.store.select('search')
+      .map((data) => {
+        /*TODO: implement error handling here*/
+        return (data && data.resultsData )? ( data.resultsData) : [];
+        // return data.resultsData;
+      })
+      .subscribe((value)=>{
+        this.subRedditSearchResults = value;
       })
   }
 
-  performSearch($event){
-    let keyword = this.keyword;
+  performSearch(keyword:string){
+    this.keyword = keyword;
+    // let keyword = this.keyword;
     if(keyword!=='')
-    this.store.dispatch(new fromSearchActions.BeginGetResults({url: this.appVariablesService.getSearchSubRedditUrl(keyword)}));
-    console.log($event);;
+    this.store.dispatch(new fromSearchActions.BeginGetResults({url: this.appVariablesService.getSearchSubRedditPostsUrl(keyword)}));
   }
 
+  keypressed($event){
+    console.log($event);
+    if($event.keyCode===40){
+      ++this.highlightedTypeaheadCount;
+    }
+    else if($event.keyCode===38){
+      --this.highlightedTypeaheadCount;
+    }
+    else if($event.keyCode===13){
+      /*TODO: If possible do tranformation in map*/
+      let highlightedTypeaheadText:string = this.subRedditSearchResults[this.highlightedTypeaheadCount].display_name;
+      this.performSearch(highlightedTypeaheadText);
+      /*TODO: perform search for subreddit*/
+    }
+    if(this.highlightedTypeaheadCount<0){
+      this.highlightedTypeaheadCount = Math.min(this.subRedditSearchResults.length-1, 10);
+    }
+    else if(this.highlightedTypeaheadCount>Math.min(this.subRedditSearchResults.length-1, 10)){
+      this.highlightedTypeaheadCount =0;
+    }
+  }
 
   homeClicked(){
     this.router.navigate(["/"]);

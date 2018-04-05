@@ -11,7 +11,7 @@ const initialState:State={
   postData:[]
 };
 
-export function postReducer(state:State, action:fromPostActions.PostActions): State {
+export function postReducer(state:State=initialState, action:fromPostActions.PostActions): State {
   switch (action.type){
     case fromPostActions.BEGIN_GET_POST:{
       return{

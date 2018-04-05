@@ -46,14 +46,6 @@
 
 <div class="container bg-white mb-2">
   <div class="row align-items-start post-wrapper p-3 justify-content-center">
-    <!--<div class="col-1 5"></div>-->
-    <!--<div class="text-muted col-11">I am developer retweeted</div>-->
-    <!--<div class="text-muted col-11">I am developer retweeted</div>-->
-    <!--<div class="col-1 p-0">-->
-      <!--<div class="post-wrapper__userlogo ">-->
-        <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyDw06sXVJ5KPbNAVXiqij6ACgrTPO64t7-7Rrt0QCn1xycwoJRrrIvIk" class="img-fluid rounded-circle"  alt="">-->
-      <!--</div>-->
-    <!--</div>-->
     <div class="col-11 pt-1 pb-0  post-wrapper__meta-top ">
       <div class="d-flex " style="position: relative">
         <div class="name font-weight-bold text-twitter-theme mr-1">I am recruiter</div>
@@ -102,7 +94,9 @@
   </div>
 
   <div class="row">
-    <app-comment-list></app-comment-list>
+    <div class="col-12">
+      <app-comment-list [id]="'89uf7o'" [subreddit]="'AskReddit'"></app-comment-list>
+    </div>
   </div>
 </div>
 

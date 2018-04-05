@@ -183,6 +183,161 @@ export interface SubRedditResultList {
   }
 }
 
+export interface CommentData {
+  "subreddit_id"?: string,
+  "approved_at_utc"?: null,
+  "ups"?: number,
+  "mod_reason_by"?: null,
+  "banned_by"?: null,
+  "removal_reason"?: null,
+  "link_id"?: string,
+  "likes"?: null,
+  "no_follow"?: true,
+  "replies"?: {
+    "kind"?: string,
+    "data"?: {
+      "after"?: null,
+      "whitelist_status"?: string,
+      "modhash"?: string,
+      "dist"?: null,
+      "children"?: [
+        {
+          "kind"?: string,
+          "data"?: {
+            "subreddit_id"?: string,
+            "approved_at_utc"?: null,
+            "ups"?: number,
+            "mod_reason_by"?: null,
+            "banned_by"?: null,
+            "removal_reason"?: null,
+            "link_id"?: string,
+            "likes"?: null,
+            "no_follow"?: false,
+            "replies"?: {
+              "kind"?: string,
+              "data"?: {
+                "after"?: null,
+                "whitelist_status"?: string,
+                "modhash"?: string,
+                "dist"?: null,
+                "children"?: [
+                  {
+                    "kind"?: string,
+                    "data"?: {
+                      "count"?: number,
+                      "name"?: string,
+                      "id"?: string,
+                      "parent_id"?: string,
+                      "depth"?: number,
+                      "children"?: Array<string>
+                    }
+                  }
+                  ],
+                "before"?: null
+              }
+            },
+            "user_reports"?: Array<any>,
+            "saved"?: false,
+            "id"?: string,
+            "banned_at_utc"?: null,
+            "mod_reason_title"?: null,
+            "gilded"?: number,
+            "archived"?: true,
+            "report_reasons"?: null,
+            "author"?: string,
+            "can_mod_post"?: false,
+            "send_replies"?: true,
+            "parent_id"?: string,
+            "score"?: number,
+            "approved_by"?: null,
+            "downs"?: number,
+            "body"?: string,
+            "edited"?: false,
+            "author_flair_css_class"?: null,
+            "collapsed"?: false,
+            "is_submitter"?: false,
+            "collapsed_reason"?: null,
+            "body_html"?: string,
+            "subreddit_type"?: string,
+            "can_gild"?: true,
+            "subreddit"?: string,
+            "name"?: string,
+            "score_hidden"?: false,
+            "permalink"?: string,
+            "num_reports"?: null,
+            "stickied"?: false,
+            "created"?: number,
+            "author_flair_text"?: null,
+            "created_utc"?: number,
+            "subreddit_name_prefixed"?: string,
+            "controversiality"?: 0,
+            "depth"?: 1,
+            "mod_reports"?: Array<any>,
+            "mod_note"?: null,
+            "distinguished"?: null
+          }
+        }
+        ],
+      "before"?: null
+    }
+  },
+  "user_reports"?: Array<any>,
+  "saved"?: false,
+  "id"?: string,
+  "banned_at_utc"?: null,
+  "mod_reason_title"?: null,
+  "gilded"?: number,
+  "archived"?: true,
+  "report_reasons"?: null,
+  "author"?: string,
+  "can_mod_post"?: false,
+  "send_replies"?: true,
+  "parent_id"?: string,
+  "score"?: number,
+  "approved_by"?: null,
+  "downs"?: number,
+  "body"?: string,
+  "edited"?: false,
+  "author_flair_css_class"?: null,
+  "collapsed"?: false,
+  "is_submitter"?: false,
+  "collapsed_reason"?: null,
+  "body_html"?: string,
+  "subreddit_type"?: string,
+  "can_gild"?: true,
+  "subreddit"?: string,
+  "name"?: string,
+  "score_hidden"?: false,
+  "permalink"?: string,
+  "num_reports"?: null,
+  "stickied"?: false,
+  "created"?: number,
+  "author_flair_text"?: null,
+  "created_utc"?: number,
+  "subreddit_name_prefixed"?: string,
+  "controversiality"?: number,
+  "depth"?: number,
+  "mod_reports"?: Array<any>,
+  "mod_note"?: null,
+  "distinguished"?: null
+}
+export interface CommentDataWrapper {
+  "kind"?: string,
+  "data"?: CommentData
+}
+
+export interface RedditCommentResult
+{
+  "kind"?: string,
+  "data"?: {
+    "after"?: null,
+    "whitelist_status"?: string,
+    "modhash"?: string,
+    "dist"?: null,
+    "children"?: CommentDataWrapper[]
+    "before"?: null
+  }
+}
 
 
 export interface CartisanUser {

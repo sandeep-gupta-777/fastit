@@ -3,7 +3,7 @@
 <div class="col-12">
   <!--<app-new-comment></app-new-comment>-->
   <!--<br>-->
-  <app-comment *ngFor="let i of [1,2,3,4,5,5]"></app-comment>
+  <app-comment *ngFor="let commentData of $commentArray|async" [commentData]="commentData"></app-comment>
 </div>
   </div>
 </div>

@@ -25,9 +25,11 @@ export class SearchEffects{
     })
     .map((data: SubRedditResultList)=>{
       // console.log(data);
-      return data.data.children.map((child)=>{
+      let arr =  data.data.children.map((child)=>{
         return child.data
       });
+      console.log('in search.effects: reslts from server', arr);
+      return arr;
     })
     .mergeMap((data: SubRedditData[])=>{
       return [

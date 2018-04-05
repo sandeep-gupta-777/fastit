@@ -48,6 +48,7 @@ import { SearchBarComponent } from './search-dir/search-bar/search-bar.component
 import {SearchListComponent} from "./search-dir/search-list/search-list.component";
 import {SearchItemComponent} from "./search-dir/search-item/search-item.component";
 import {SearchEffects} from "./search-dir/store/search.effects";
+import {CommentEffects} from "./commentsDir/store/comment.effects";
 
 const routes: Route[] = [
   {path: 'search', component: SearchListComponent },
@@ -110,7 +111,7 @@ const routes: Route[] = [
     HttpClientModule,
     RouterModule.forRoot(routes),
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([PostEffects, SearchEffects]),
+    EffectsModule.forRoot([PostEffects, SearchEffects, CommentEffects]),
     StoreDevtoolsModule,
     !environment.production?  StoreDevtoolsModule.instrument():[]
 

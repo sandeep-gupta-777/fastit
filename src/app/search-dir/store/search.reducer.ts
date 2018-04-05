@@ -9,7 +9,7 @@ const initialState:State={
   resultsData:[]
 };
 
-export function searchReducer(state:State, action:fromResultsActions.ResultActions): State {
+export function searchReducer(state:State=initialState, action:fromResultsActions.ResultActions): State {
   console.log('in search Reducer');
   switch (action.type){
     case fromResultsActions.BEGIN_GET_RESULTS:{

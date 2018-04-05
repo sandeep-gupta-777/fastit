@@ -19,17 +19,45 @@
     </ul>
   </div>
 
-  <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-    <li class="nav-item search-result-container">
-      <a class="nav-link p-2">
-        <input type="search" id="searchT" [ngModel]="keyword" (ngModelChange) = performSearch($event)>
-        <ul class="search-result " style="width: 100%;">
-          <li class="search-result-item"
-              *ngFor="let result of ($searchResults|async) | slice:0:10; let i=index">
-            {{result.display_name_prefixed}}
-          </li>
-        </ul>
-      </a>
+  <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex"
+      (keydown)="keypressed($event)">
+    <!--TODO: can typeahead be saperated in saperate component?-->
+    <!--TODO: can it be more simplified-->
+    <li class="nav-item search-result-pivot nav-link p-2" #search >
+        <input type="search" id="searchT" [ngModel]="keyword" (ngModelChange)='performSearch($event)'>
+      <!--typeahead begin-->
+        <div class="row search-result-container " *ngIf="keyword && !hideTypeahead" >
+
+          <div class="col-6 p-0" style="height: 300px">
+            <ul class="search-result " style="height: 100%"
+                *ngIf="($searchResults|async).length>0"
+                [ngClass]="{'bg-white':($searchResults|async).length>0}">
+              <li class="search-result-item"
+                  *ngFor="let result of ($searchResults|async) | slice:0:10; let i=index"
+                  [ngClass]="{'bg-twitter-background':i===highlightedTypeaheadCount}"
+              >
+                {{result.display_name_prefixed}}
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-6 p-0 bg-white" style="height: 300px">
+            <ul class="search-result">
+              <li class="search-result-item" >
+                Post with :<b>{{" " + keyword}}</b>
+              </li>
+              <li class="search-result-item">
+                user with :<b>{{" " + keyword}}</b>
+              </li>
+              <li class="search-result-item">
+                subreddit with :<b>{{" " + keyword}}</b>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      <!--typeahead ends-->
+
     </li>
     <li class="nav-item">
       <a class="nav-link p-2">

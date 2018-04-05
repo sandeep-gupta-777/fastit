@@ -21,32 +21,5 @@ export class PostListComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(new fromPostActions.BeginGetPosts({url: this._redditDataUrl}));
-    // this._initFeed();
-    // this._logFeed();
   }
-
-  // private _initFeed() {
-  //   this._reddits$ = this._http.get<RedditPostList>(this._redditDataUrl)
-  //     .map((json) => json.data.children)
-  //     .map(children => children.filter(d => (
-  //       ['png', 'jpg'].indexOf(d.data.url.split('.').pop()) != -1
-  //     )))
-  //     .map(children => children.map(d => {
-  //       // return {
-  //       //   id: d.data.id,
-  //       //   title: d.data.title,
-  //       //   imageUrl: d.data.url
-  //       // }
-  //
-  //       return d.data;
-  //     }));
-  //   // .map((response:any) => response.json());
-  // }
-  // private _logFeed() {
-  //
-  //   this._reddits$.subscribe((data )=> {
-  //     console.log('data', data);
-  //   });
-  // }
-
 }
