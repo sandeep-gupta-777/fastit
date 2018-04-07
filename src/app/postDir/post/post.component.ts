@@ -8,7 +8,7 @@ import {RedditPostData} from "../../Models";
 })
 export class PostComponent implements OnInit {
 
-  @Input() post: RedditPostData;
+  @Input() post:RedditPostData;
   constructor() { }
 
   ngOnInit() {

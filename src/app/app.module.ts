@@ -49,6 +49,7 @@ import {SearchListComponent} from "./search-dir/search-list/search-list.componen
 import {SearchItemComponent} from "./search-dir/search-item/search-item.component";
 import {SearchEffects} from "./search-dir/store/search.effects";
 import {CommentEffects} from "./commentsDir/store/comment.effects";
+import {MarkdownToHtmlModule} from "markdown-to-html-pipe";
 
 const routes: Route[] = [
   {path: 'search', component: SearchListComponent },
@@ -109,6 +110,7 @@ const routes: Route[] = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    MarkdownToHtmlModule,
     RouterModule.forRoot(routes),
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([PostEffects, SearchEffects, CommentEffects]),

@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 import {Store} from "@ngrx/store";
 import * as fromPost from "../store/post.reducer";
 import * as fromPostActions from "../store/post.action";
+import {GlobalAppState} from "../../store/app.reducers";
 
 
 @Component({
@@ -16,10 +17,21 @@ import * as fromPostActions from "../store/post.action";
 export class PostListComponent implements OnInit {
 
   private _reddits$: Observable<RedditPostData[]>;
+  private testRedditPostDataArray: RedditPostData[];
   private _redditDataUrl: string = 'http://www.reddit.com/r/9gag.json';
-  constructor(private _http:HttpClient, private store:Store<fromPost.State>) { }
+  constructor(private _http:HttpClient, private store:Store<GlobalAppState>) { }
 
   ngOnInit() {
+
     this.store.dispatch(new fromPostActions.BeginGetPosts({url: this._redditDataUrl}));
+    this._reddits$ =
+      this.store.select('post')
+      .map((value:{ postData:RedditPostData[]})=>{
+        return value?value.postData:[];
+      })
+      // .subscribe((value: { postData:RedditPostData[]})=>{
+      //   this.testRedditPostDataArray = (value && value.postData)?value.postData:[];
+      // })
+
   }
 }

@@ -1,6 +1,9 @@
 
 export interface RedditPostData{
 
+  /*custom fields*/
+  imageExists?:boolean,
+
   "subreddit_id"?: string,
   "approved_at_utc"?: string,
   "send_replies"?: boolean,
@@ -179,7 +182,7 @@ export interface SubRedditResultList {
     dist:number,
     modhash:string,
     kind:string,
-    children:{data:SubRedditData, kind:string}[]
+    children:Array<{data:SubRedditData, kind:string}>
   }
 }
 

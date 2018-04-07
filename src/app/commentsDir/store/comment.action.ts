@@ -10,7 +10,10 @@ export class BeginGetComments implements Action{
 }
 export class GetComments implements Action{
   type: string = GET_COMMENTS;
-  constructor(public payload:{commentData:CommentData[]} ){}
+
+  constructor(public payload:{map:Map<string,CommentData[]>} ){
+    console.log('Getcomments constructor');
+  }
 }
 
 export type CommentActions = BeginGetComments | GetComments;

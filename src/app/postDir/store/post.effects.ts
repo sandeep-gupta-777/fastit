@@ -26,13 +26,25 @@ export class PostEffects{
     .map((data: RedditPostList)=>{
       console.log(data);
       let x =  data.data.children.map((d)=>{
-        return d.data
+        return d.data;
       });
-      console.log(x);
+
+
+    // .map(children => children.filter(d => (
+    //     ['png', 'jpg'].indexOf(d.data.url.split('.').pop()) != -1
+    //   )))
       return x;
+      // return data.data.children
+    })
+    .map((data: RedditPostData[])=>{
+      return data.map(d => {
+        if (['png', 'jpg'].indexOf(d.url.split('.').pop()) != 1) {
+          d.imageExists = false;
+        }
+        return d;
+      })
     })
     .mergeMap((data: RedditPostData[])=>{
-      console.log(data);
       return [
         new fromPostAction.GetPosts({postData:data}),
       ];

@@ -1,56 +1,71 @@
 
-<!--<div class="container">-->
+
+<!--<div class="container bg-white mb-2">-->
   <!--<div class="row align-items-start post-wrapper p-3 justify-content-center">-->
-    <!--<div class="col-1 5"></div>-->
-    <!--<div class="text-muted col-11"></div>-->
-    <!--<div class="col-1 p-0">-->
-      <!--<div class="post-wrapper__userlogo ">-->
-      <!--</div>-->
-    <!--</div>-->
-    <!--<div class="col-11 pt-1  pb-0  post-wrapper__meta-top">-->
-      <!--<div class="d-flex">-->
-        <!--<div class="name font-weight-bold mr-1">{{post.subreddit}}</div>-->
-        <!--<div class="text-muted mr-1 username">{{post.author}}</div>-->
-        <!--<div class="text-muted date">{{post.created|date}}</div>-->
+    <!--<div class="col-11 pt-1 pb-0  post-wrapper__meta-top ">-->
+      <!--<div class="d-flex " style="position: relative">-->
+        <!--<div class="name font-weight-bold text-twitter-theme mr-1">I am recruiter</div>-->
+        <!--<div class="text-muted mr-1 username">@iamrecruiter</div>-->
+        <!--<div class="text-muted date">Mar 22</div>-->
+        <!--<div class="dropdown" style="margin-left: auto; position: absolute; right: 0">-->
+          <!--<div class="options"></div>-->
+          <!--<div class="dropdown-content">-->
+            <!--<ul style="list-style-type: none;" class="p-0 m-0">-->
+              <!--<li><i class="fa fa-reddit"></i>Show subreddit</li>-->
+              <!--<li><i class="fa fa-plus"></i>Subscribe</li>-->
+              <!--<li><i class="fa fa-user"></i>Show User</li>-->
+              <!--<li><i class="fa fa-plus"></i>Follow User</li>-->
+              <!--<li> <i class="fa fa-share"></i>Hide</li>-->
+              <!--<li><i class="fa fa-exclamation-triangle"></i>Report</li>-->
+            <!--</ul>-->
+          <!--</div>-->
+        <!--</div>-->
       <!--</div>-->
 
       <!--<div class="pt-1 post-wrapper__detail">-->
-        <!--<div class="post-wrapper__detail-main">{{post.title}}</div>-->
+        <!--<div class="post-wrapper__detail-main">I made an image on photoshop today</div>-->
         <!--<div class="text-muted post-wrapper__detail-sub">Marvel: 'Infinity War is the most ambitious crossover event in history'</div>-->
-        <!--<div class=" post-wrapper__detail-img mt-2 p-1">-->
-          <!--<img class="img-fluid border post-wrapper__detail-img"-->
-               <!--[src]="post.url"-->
-               <!--alt="">-->
+        <!--<div class=" post-wrapper__detail-img mt-2">-->
+          <!--<img class="img-fluid border post-wrapper__detail-img"  src="https://images.pexels.com/photos/599982/pexels-photo-599982.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="">-->
         <!--</div>-->
       <!--</div>-->
 
     <!--</div>-->
     <!--<div class="col-1"></div>-->
     <!--<div class="col-11 d-flex my-3">-->
-      <!--<div class="controls ">-->
+      <!--<div class="controls text-twitter-theme">-->
 
-        <!--<div class="mr-3 control-votes  d-inline-block">-->
-          <!--<i class="text-muted fa fa-arrow-circle-up mr-1"></i>-->
-          <!--<span class="count mr-2">22</span>-->
-          <!--<i class="text-muted fa fa-arrow-circle-down  "></i>-->
+        <!--<div class="mr-4 control-up  d-inline-block">-->
+          <!--<i class="text-muted fa fa-arrow-circle-up"></i>-->
+          <!--<span class="count px-1 font-weight-bold">22</span>-->
+          <!--<i class="text-muted fa fa-arrow-circle-down"></i>-->
         <!--</div>-->
 
-        <!--<div class=" control-comment d-inline-block">-->
+        <!--<div class="mr-4 control-comment d-inline-block">-->
           <!--<i class="text-muted fa fa-comment-o"></i>-->
-          <!--<span class="count">{{post.num_comments}}</span></div>-->
+          <!--<span class="count font-weight-bold">22</span></div>-->
 
       <!--</div>-->
     <!--</div>-->
   <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-12">-->
+      <!--<app-comment-list [id]="'89uf7o'" [subreddit]="'AskReddit'"></app-comment-list>-->
+    <!--</div>-->
+  <!--</div>-->
 <!--</div>-->
 
-<div class="container bg-white mb-2">
+
+
+
+<div class="container bg-white mb-4">
   <div class="row align-items-start post-wrapper p-3 justify-content-center">
     <div class="col-11 pt-1 pb-0  post-wrapper__meta-top ">
       <div class="d-flex " style="position: relative">
-        <div class="name font-weight-bold text-twitter-theme mr-1">I am recruiter</div>
-        <div class="text-muted mr-1 username">@iamrecruiter</div>
-        <div class="text-muted date">Mar 22</div>
+        <div class="name font-weight-bold text-twitter-theme mr-1">{{post.author}}</div>
+        <div class="text-muted mr-1 username">{{post.name}}</div>
+        <div class="text-muted date">{{post.created}}</div>
         <div class="dropdown" style="margin-left: auto; position: absolute; right: 0">
           <div class="options"></div>
           <div class="dropdown-content">
@@ -61,22 +76,26 @@
               <li><i class="fa fa-plus"></i>Follow User</li>
               <li> <i class="fa fa-share"></i>Hide</li>
               <li><i class="fa fa-exclamation-triangle"></i>Report</li>
+              <li><i class="fa fa-link"></i><a [href]="post.url">On Reddit</a></li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div class="pt-1 post-wrapper__detail">
-        <div class="post-wrapper__detail-main">I made an image on photoshop today</div>
-        <div class="text-muted post-wrapper__detail-sub">Marvel: 'Infinity War is the most ambitious crossover event in history'</div>
-        <div class=" post-wrapper__detail-img mt-2">
-          <img class="img-fluid border post-wrapper__detail-img"  src="https://images.pexels.com/photos/599982/pexels-photo-599982.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="">
+      <div class="pt-1 post-wrapper__detail" style="overflow:hidden;">
+        <div class="post-wrapper__detail-main">{{post.title}}</div>
+        <div class="text-muted post-wrapper__detail-sub mb-2" [innerHTML]="post.selftext|MarkdownToHtml"></div>
+        <!--<div class="text-muted post-wrapper__detail-sub mb-2">{{post.selftext}}</div>-->
+        <div class=" post-wrapper__detail-img " *ngIf="post.imageExists">
+          <img class="img-fluid border post-wrapper__detail-img"  [src]="post.url" alt="">
         </div>
       </div>
 
+
     </div>
+
     <div class="col-1"></div>
-    <div class="col-11 d-flex my-3">
+    <div class="col-11 d-flex mt-0 pt-0">
       <div class="controls text-twitter-theme">
 
         <div class="mr-4 control-up  d-inline-block">
@@ -91,14 +110,20 @@
 
       </div>
     </div>
+    <div class="col-12">
+      <hr class="p-0 mb-0 " >
+    </div>
   </div>
 
-  <div class="row">
+
+  <div class="row mb-0">
     <div class="col-12">
-      <app-comment-list [id]="'89uf7o'" [subreddit]="'AskReddit'"></app-comment-list>
+      <app-comment-list [id]="post.id" [subreddit]="post.subreddit"></app-comment-list>
     </div>
   </div>
 </div>
+
+
 
 
 

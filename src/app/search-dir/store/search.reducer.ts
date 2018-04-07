@@ -24,5 +24,7 @@ export function searchReducer(state:State=initialState, action:fromResultsAction
         resultsData: ((<fromResultsActions.GetResults>action).payload.data)
       }
     }
+    default:
+      return state;
   }
 }

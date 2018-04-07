@@ -12,6 +12,7 @@ const initialState:State={
 };
 
 export function postReducer(state:State=initialState, action:fromPostActions.PostActions): State {
+  console.log('in post reducers');
   switch (action.type){
     case fromPostActions.BEGIN_GET_POST:{
       return{
@@ -24,5 +25,7 @@ export function postReducer(state:State=initialState, action:fromPostActions.Pos
         postData: ((<fromPostActions.GetPosts>action).payload.postData)
       }
     }
+    default:
+      return state;
   }
 }

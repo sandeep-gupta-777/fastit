@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {AppVariablesService} from "./appVariables.service";
 import {isUndefined} from "util";
 import {HttpClient} from "@angular/common/http";
+import {RedditPostList} from "./Models";
 
 @Injectable()
 export class HelperService {
@@ -9,8 +10,9 @@ export class HelperService {
   constructor(private appVariablesService:AppVariablesService,
               private http:HttpClient) { }
 
-  makeGetReq(url){
-    return this.http.get(url);
+  makeGetReq<T>(url){
+    console.log(url);
+    return this.http.get<T>(url);
   }
   copyToClipboard(text) {
     let tempWindow:any = window;

@@ -1,30 +1,36 @@
 import {CommentData, CommentDataWrapper} from "../../Models";
 import * as fromCommentActions from './comment.action';
-
-
+import 'map.prototype.tojson';
 
 export interface State {
-  commentData:CommentData[]
+    // commentsMap: Array<{id?:string, commentData?:CommentData[]}>
+  /*todo: remove redundant comment key...read about map interfaces in TS*/
+    commentsMap: Map<string,CommentData[]>
 }
 
 const initialState:State={
-  commentData:[]
+  commentsMap:new  Map<string,CommentData[]>()
 };
 
-export function commentReducer(state:State=initialState, action:fromCommentActions.CommentActions): State {
+export function commentReducer(state:State, action:fromCommentActions.CommentActions): State {
+  if(!state) state = initialState;
+  let tempState = state;
   console.log('comment reducer');
   switch (action.type){
     case fromCommentActions.BEGIN_GET_COMMENTS:{
+      console.log('begin get commentsMap reducer');
       return{
         ...state,
       }
     }
     case fromCommentActions.GET_COMMENTS:{
-      console.log('GET COMMENT REDUCER');
-      return{
+      let tempPayload  = (<fromCommentActions.GetComments>action).payload;
+      return {
         ...state,
-        commentData: ((<fromCommentActions.GetComments>action).payload.commentData)
-      }
+        commentsMap:new Map<string, CommentData[]>([...state.commentsMap,...tempPayload.map])
+      };
     }
+    default:
+      return state;
   }
 }

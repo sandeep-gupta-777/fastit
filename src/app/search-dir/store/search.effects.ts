@@ -21,21 +21,22 @@ export class SearchEffects{
         return action.payload.url;
     })
     .switchMap((url:string)=>{
-      return this.helper.makeGetReq(url);
+      return this.helper.makeGetReq<SubRedditResultList>(url);
     })
-    .map((data: SubRedditResultList)=>{
-      // console.log(data);
-      let arr =  data.data.children.map((child)=>{
-        return child.data
-      });
-      console.log('in search.effects: reslts from server', arr);
-      return arr;
-    })
-    .mergeMap((data: SubRedditData[])=>{
-      return [
-        new fromResultsAction.GetResults({data:data}),
-      ];
-    })
+      .map((data: SubRedditResultList)=>{
+        // console.log(data);
+        let arr =  data.data.children
+          .map((child:{data:SubRedditData, kind:string})=>{
+          return child.data
+        });
+        console.log('in search.effects: reslts from server', arr);
+        return arr;
+      })
+      .mergeMap((data: SubRedditData[])=>{
+        return [
+          new fromResultsAction.GetResults({data:data}),
+        ];
+      })
 }
 
 

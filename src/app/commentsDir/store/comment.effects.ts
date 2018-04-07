@@ -5,6 +5,8 @@ import 'rxjs/add/operator/mergeMap';
 import {HelperService} from "../../helper.service";
 import {CommentData, CommentDataWrapper, RedditCommentResult,} from "../../Models";
 import {ContentChild, Injectable} from "@angular/core";
+import 'rxjs/add/operator/concatMap'
+import * as fromCommentReducer from "./commentReducer";
 
 @Injectable()
 export class CommentEffects{
@@ -15,34 +17,45 @@ export class CommentEffects{
   ){}
 
   @Effect()
-  postEffect = this.action$
+  commentEffect = this.action$
     .ofType(fromCommentActions.BEGIN_GET_COMMENTS)
-    .map((action:fromCommentActions.BeginGetComments)=>{
+    .map((action:fromCommentActions.BeginGetComments)=>{//observable will resolve to Dispatched Object
+      console.log('BEGIN get comment : effects');
         return action.payload.url;
     })
-    .switchMap((url:string)=>{
-      return this.helper.makeGetReq(url);
+    .mergeMap((url:string)=>{
+      return this.helper.makeGetReq<RedditCommentResult[]>(url);
     })
     .map((data: RedditCommentResult[])=>{
-      // return data.data.children;
-      // let x =  data.filter((d, index)=>{
-      //   return index!==0;
-      // });
 
+      //get the id
+      let id = (<any>data[0]).data.children[0].data.id;
+      let newArr:CommentData[];
+      console.log('comment from server: ',data);
+
+      //get the comment array
       data.splice(0,1);
+      // data.splice(1,1);
       if(data.length>0)
-      return data[0].data.children.map((d:CommentDataWrapper)=>{
-        return d.data;
-      });
+      {
+        newArr =  data[0].data.children.map((d:CommentDataWrapper)=>{
+          return d.data;
+        });
+      }
+      newArr.pop();//TODO: make use of this data, rather than deleting it
+      //make map with id and array and return
+      let tempMap = new Map<string,CommentData[]>();
+      tempMap.set(id,newArr);
+      return tempMap;
 
-      return [];
     })
-    .mergeMap((data: CommentData[])=>{
+    .mergeMap((data: Map<string,CommentData[]>)=>{
       console.log(data);
       return [
-        new fromCommentActions.GetComments({commentData:data}),
+        new fromCommentActions.GetComments({map:data}),
       ];
     })
+
 }
 
 
