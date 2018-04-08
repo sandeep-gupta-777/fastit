@@ -11,7 +11,8 @@ export class BeginGetComments implements Action{
 export class GetComments implements Action{
   type: string = GET_COMMENTS;
 
-  constructor(public payload:{map:Map<string,CommentData[]>} ){
+  // constructor(public payload:{post_comment_map:{id:string,commentsData:CommentData[]}} ){
+    constructor(public payload:{post_id:string, commentsData:CommentData[]}){
     console.log('Getcomments constructor');
   }
 }

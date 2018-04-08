@@ -10,8 +10,8 @@ export class AppVariablesService {
   /*"https://www.reddit.com/search.json?q=india&sort=relevance&t=all".*/
   /*"http://www.reddit.com/r/worldnews/comments/7g4za4.json?&limit=5".*/
 
-  /*commentsMap:*/
-  /*get commentsMap: https://www.reddit.com/r/9gag/comments/6azdc9.json?limit=100   here 6azdc9 is id which is found in post*/
+  /*comments:*/
+  /*get comments: https://www.reddit.com/r/9gag/comments/6azdc9.json?limit=100   here 6azdc9 is id which is found in post*/
   /*additional examples: https://www.reddit.com/r/AskReddit/comments/89uf7o.json?limit=100&depth=3&sort=confidence&rnd=906516*/
 
   /*paths below*/

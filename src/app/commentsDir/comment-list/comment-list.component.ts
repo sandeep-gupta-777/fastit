@@ -40,7 +40,7 @@ export class CommentListComponent implements OnInit {
     // this.$commentArray =
       this.store.select('comment')
       .map((value:fromCommentReducers.State)=>{
-        return (value) && value.commentsMap.get(this.id);
+        return (value) && value.comments.get(this.id);
       })
       .subscribe((value:CommentData[])=>{
         this.commentArray = value||[];

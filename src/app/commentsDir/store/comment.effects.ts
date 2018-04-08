@@ -44,15 +44,18 @@ export class CommentEffects{
       }
       newArr.pop();//TODO: make use of this data, rather than deleting it
       //make map with id and array and return
-      let tempMap = new Map<string,CommentData[]>();
-      tempMap.set(id,newArr);
-      return tempMap;
-
+      // let tempMap = new Map<string,CommentData[]>();
+      // tempMap.set(id,newArr);
+      return {post_id:id, commentsData:newArr};
     })
-    .mergeMap((data: Map<string,CommentData[]>)=>{
+    .map((data: {post_id:string, commentsData:CommentData[]})=>{
+      /*do data transformations here*/
+      return data;
+    })
+    .mergeMap((data: {post_id:string, commentsData:CommentData[]})=>{
       console.log(data);
       return [
-        new fromCommentActions.GetComments({map:data}),
+        new fromCommentActions.GetComments({post_id:data.post_id, commentsData:data.commentsData}),
       ];
     })
 
