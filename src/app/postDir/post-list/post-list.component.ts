@@ -29,8 +29,8 @@ export class PostListComponent implements OnInit {
       .map((value:{ postData:RedditPostData[]})=>{
         return value?value.postData:[];
       })
-      // .subscribe((value: { postData:RedditPostData[]})=>{
-      //   this.testRedditPostDataArray = (value && value.postData)?value.postData:[];
+      // .subscribe((value: { postState:RedditPostData[]})=>{
+      //   this.testRedditPostDataArray = (value && value.postState)?value.postState:[];
       // })
 
   }

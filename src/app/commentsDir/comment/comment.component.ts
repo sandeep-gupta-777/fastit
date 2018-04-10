@@ -22,6 +22,7 @@ export class CommentComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log(this.commentData,'000000000000000000000000000000');
     // let commentUrl = this.appVariablesService.getCommentUrl('9gag','6azdc9', 2);
     // this.store.dispatch(new fromCommentAction.BeginGetComments({url: commentUrl}));
   }

@@ -3,7 +3,8 @@
 <div class="col-12">
   <!--<app-new-comment></app-new-comment>-->
   <!--<br>-->
-  <app-comment *ngFor="let commentData of commentArray" [commentData]="commentData"></app-comment>
+  <app-comment *ngFor="let comment_id of this.storeService.getCommentIndexBy_postID(this.post_id)"
+               [commentData]="getComment(comment_id)" ></app-comment>
 </div>
   </div>
 </div>

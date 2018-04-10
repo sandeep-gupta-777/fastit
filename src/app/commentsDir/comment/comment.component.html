@@ -2,7 +2,7 @@
   <div class="row bg-white comment__header d-flex align-items-center">
     <div class="col-12 d-flex justify-content-start">
       <div class="comment__header-user-name separator font-weight-bold text-twitter-theme">{{commentData.author}}</div>
-      <!--<div class="comment__header-vote-count mr-2 separator text-muted">{{commentData.ups}}</div>-->
+      <!--<div class="comment__header-vote-count mr-2 separator text-muted">{{comment.ups}}</div>-->
       <div class="comment__header-date text-muted">{{commentData.created|date}}</div>
     </div>
   </div>
@@ -11,7 +11,7 @@
     <div class="col-12">
       <div [innerHTML]="(commentData && commentData.body)|MarkdownToHtml"></div>
       <!--<div>-->
-        <!--{{commentData && commentData.body}}-->
+        <!--{{comment && comment.body}}-->
       <!--</div>-->
     </div>
   </div>
@@ -36,3 +36,4 @@
   </div>
 </div>
 
+<!---->

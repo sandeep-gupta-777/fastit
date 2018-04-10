@@ -50,6 +50,7 @@ import {SearchItemComponent} from "./search-dir/search-item/search-item.componen
 import {SearchEffects} from "./search-dir/store/search.effects";
 import {CommentEffects} from "./commentsDir/store/comment.effects";
 import {MarkdownToHtmlModule} from "markdown-to-html-pipe";
+import {StoreService} from "./store.service";
 
 const routes: Route[] = [
   {path: 'search', component: SearchListComponent },
@@ -124,7 +125,8 @@ const routes: Route[] = [
     HelperService,
     AppVariablesService,
     RouterGaurdServiceService,
-    AdventureTimeService
+    AdventureTimeService,
+    StoreService
   ],
   bootstrap: [
     AppComponent

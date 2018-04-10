@@ -11,7 +11,7 @@ export class AppVariablesService {
   /*"http://www.reddit.com/r/worldnews/comments/7g4za4.json?&limit=5".*/
 
   /*comments:*/
-  /*get comments: https://www.reddit.com/r/9gag/comments/6azdc9.json?limit=100   here 6azdc9 is id which is found in post*/
+  /*get comments: https://www.reddit.com/r/9gag/comments/6azdc9.json?limit=100   here 6azdc9 is post_id which is found in post*/
   /*additional examples: https://www.reddit.com/r/AskReddit/comments/89uf7o.json?limit=100&depth=3&sort=confidence&rnd=906516*/
 
   /*paths below*/
@@ -45,7 +45,7 @@ export class AppVariablesService {
   readonly FRONTEND_ALL_ORDERS_URL = 'allorders';
   readonly FRONTEND_NEW_ORDER_URL = 'neworder';
   readonly FRONTEND_ORDER_PAGE_URL = 'orderCarService';
-  // readonly FRONTEND_ORDER_IMAGE_EDIT_PAGE_URL = 'neworder/:id/imageEdit';
+  // readonly FRONTEND_ORDER_IMAGE_EDIT_PAGE_URL = 'neworder/:post_id/imageEdit';
   public FRONTEND_Keyword = '';
   public previousSRPURL  = "/";
   public previousSRPQueryParams  = {};

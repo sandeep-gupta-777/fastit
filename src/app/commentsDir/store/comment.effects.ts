@@ -28,13 +28,16 @@ export class CommentEffects{
     })
     .map((data: RedditCommentResult[])=>{
 
-      //get the id
+      //get the post_id
       let id = (<any>data[0]).data.children[0].data.id;
       let newArr:CommentData[];
       console.log('comment from server: ',data);
 
       //get the comment array
       data.splice(0,1);
+      if((<any>data[0]).data.children[(<any>data[0]).data.children.length-1].kind === 'more'){
+        (<any>data[0]).data.children.pop();
+      }
       // data.splice(1,1);
       if(data.length>0)
       {
@@ -42,10 +45,10 @@ export class CommentEffects{
           return d.data;
         });
       }
-      newArr.pop();//TODO: make use of this data, rather than deleting it
-      //make map with id and array and return
+
+      //make map with post_id and array and return
       // let tempMap = new Map<string,CommentData[]>();
-      // tempMap.set(id,newArr);
+      // tempMap.set(post_id,newArr);
       return {post_id:id, commentsData:newArr};
     })
     .map((data: {post_id:string, commentsData:CommentData[]})=>{
